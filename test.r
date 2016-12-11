@@ -31,11 +31,10 @@ plot(throughput, type="b", xlab="Number of Users", ylab="Throughput", main="Thro
 
 # plotting the service demand graph
 plot(servicedemand, type="b" , xlab="Utilization", ylab="Throughput", main="Service Demand vs Number of Users")
-# calculating the responsetime: R = N/XO - Z
-# Number of Users and Z = Think Time
-# 5s is the Think Time from Timeout function in runtest.ssh
+# calculating the responsetime: R = N/XO 
 
-	rtime <- 50/throughput - 5
+
+	rtime <- 50/throughput
 	
 # plotting the responsetime graph
 plot(rtime, type="b", xlab="Number of Users", ylab="Throughput", main="Response Time Vs Number of Users")

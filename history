@@ -1,0 +1,19 @@
+read.Table("G:\\4th Year\\EAA\\CA2\\results.dat")
+read.table("G:\\4th Year\\EAA\\CA2\\results.dat")
+perfdata <- read.table("results.dat", header=TRUE)
+perfdata <- read.table("G:\\4th Year\\EAA\\CA2\\results.dat", header=TRUE)
+busy <- 100 - perfdata$idle
+ui <- busy/100
+ui
+plot(ui, type="b", xlab="Conncurrent Users", ylab="Idle Time", main="Utilization vs Number of Users")
+throughput <- perfdata$CO/9
+throughput
+plot(throughput, type="b", xlab="Number of Users", ylab="Throughput", main="Throughput vs Number of Users")
+servicedemand <- ui/throughput
+servicedemand
+plot(servicedemand, type="b" , xlab="Utilization", ylab="Throughput", main="Service Demand vs Number of Users")
+rtime <- 50/throughput - 5
+rtime
+rtime <- 50/throughput
+rtime
+plot(rtime, type="b", xlab="Number of Users", ylab="Throughput", main="Response Time Vs Number of Users")
