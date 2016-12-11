@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Rachel Byrne X00109827
+
+# writes CO N and idle as column headings in results.dat file
+# CO -> Completed Transactions
+# N -> Number of Users
+# idle -> the idle time for the CPU
+echo "CO N idle" > results.dat
+
+# i is the number of user in the range of 1 to 50
+for i in {1..50}
+do
+	# sets the runtime for each loadtest argument; timeout after 5 seconds
+	# loadtest is ran for each usernumber 
+	# timeout after 5s for each process
+	timeout 5s ./loadtest $i &
+
+	# mpstat writes to standard output 
+	# Interval = 9  seconds between printing out a line of statisticcs
+	# 1 line of statistics
+	# awk collects the data for the fields
+	idle=$(mpstat 9 1 | awk 'END{print $NF}') 
+	
+	
+	
+	# count the number of lines for each process in synthetic.dat; this is the number of completed processes
+	# print out all results to results.dat
+	echo `wc -l < synthetic.dat`" "$i"  "$idle >> results.dat
+done
+
+
