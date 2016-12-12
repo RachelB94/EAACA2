@@ -13,7 +13,7 @@
 
 
 # plotting utilization graph
-plot(ui, type="b" , xlab="Concurrent Users", ylab="Idle Time", main="Utilization vs Number of Users")
+plot(ui, type="b" , xlab="Number of Users (N)", ylab="Busy Time (s)", main="Utilization vs Number of Users")
 
 # calculating the throughput XO: XO vs N 
 	
@@ -23,18 +23,18 @@ plot(ui, type="b" , xlab="Concurrent Users", ylab="Idle Time", main="Utilization
 	throughput <- perfdata$CO/9
 
 # plotting throughput graph
-plot(throughput, type="b", xlab="Number of Users", ylab="Throughput", main="Throughput vs Number of Users")
+plot(throughput, type="b", xlab="Number of Users (N)", ylab="Throughput (s)", main="Throughput vs Number of Users")
 # calculating Service Demand DI: DI vs N
 
 	 # DI = UI / XO
 	 servicedemand <- ui / throughput
 
 # plotting the service demand graph
-plot(servicedemand, type="b" , xlab="Utilization", ylab="Throughput", main="Service Demand vs Number of Users")
+plot(servicedemand, type="b" , xlab="Number of Users(N)", ylab="Service Demand (msec)", main="Service Demand vs Number of Users")
 # calculating the responsetime: R = N/XO 
 
 
 	rtime <- 50/throughput
 	
 # plotting the responsetime graph
-plot(rtime, type="b", xlab="Number of Users", ylab="Throughput", main="Response Time Vs Number of Users")
+plot(rtime, type="b", xlab="Number of Users (N)", ylab="Response Time (s)", main="Response Time Vs Number of Users")
